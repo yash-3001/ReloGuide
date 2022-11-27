@@ -36,7 +36,7 @@ const Cards = () => {
                 {/* card title */}
                 <div className='mb-3 text-[30px] font-medium'>{title}</div>
                 {/* card subtitle */}
-                <p className='mb-6 text-light'>{subtitle}</p>
+                <p className='mb-6 text-[#115E83]'>{subtitle}</p>
                 {/* arrow img */}
                 {index === cardIndex && <img src={ArrowImg} />}
               </div>

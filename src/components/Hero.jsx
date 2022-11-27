@@ -6,13 +6,13 @@ import { HiOutlineChevronDown } from 'react-icons/hi';
 
 const Hero = () => {
   // destructure hero data
-  const { title, subtitle, btnText, compText, image } = hero;
+  const { title, subtitle, image } = hero;
   return (
     <section className='min-h-[600px] py-12'>
-      <div className='container mx-auto min-h-[600px] flex justify-center items-center'>
-        <div className='flex flex-col lg:gap-x-[30px] gap-y-8 lg:gap-y-0 lg:flex-row items-center justify-center text-center lg:text-left'>
+      <div className='relative container mx-auto min-h-[600px] flex justify-center items-center'>
+        <div className='items-center justify-center text-center lg:text-left'>
           {/* text */}
-          <div className='flex-1'>
+          <div className='content relative text-6xl lg:text-6xl'>
             <h3
               className='title mb-2 lg:mb-5'
               data-aos='fade-down'
@@ -28,7 +28,7 @@ const Hero = () => {
               {subtitle}
             </p>
             {/* btn & comp text */}
-            <div
+            {/* <div
               className='flex items-center max-w-sm lg:max-w-full mx-auto lg:mx-0 gap-x-2 lg:gap-x-6'
               data-aos='fade-down'
               // data-aos-delay='700'
@@ -38,13 +38,14 @@ const Hero = () => {
                 <HiOutlineChevronDown />
               </button>
               <span className='text-light lg:lead lg:mb-0'>{compText}</span>
-            </div>
+            </div> */}
           </div>
           {/* image */}
-          <div className='flex-1' data-aos='fade-up' data-aos-delay='800'>
-            <img src={image} alt='' />
-          </div>
+          
         </div>
+        <div className='background absolute' data-aos='fade-up' data-aos-delay='800'>
+            <img className='opacity-40' src={image} alt='' />
+          </div>
       </div>
     </section>
   );

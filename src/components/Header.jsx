@@ -66,13 +66,13 @@ export default function Header() {
       return(<ul className='flex space-x-10'>
          
       <li 
-      className={` cursor-pointer py-3 text-sm font-semibold text-[#AEC6CF] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      className={` cursor-pointer py-3 text-sm font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
       onClick={()=>navigate("/listingsHome")}>Listings</li>
       <li 
-      className={` cursor-pointer py-3 text-sm font-semibold text-[#AEC6CF] border-b-[3px] border-b-transparent ${pathMathRoute("/services") && "text-black border-b-red-500"}`}
+      className={` cursor-pointer py-3 text-sm font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/services") && "text-black border-b-red-500"}`}
       onClick={()=>navigate("/services")}>Services</li>
       <li 
-      className={` cursor-pointer py-3 text-sm font-semibold text-[#AEC6CF] border-b-[3px] border-b-transparent ${pathMathRoute("/furniture") && "text-black border-b-red-500"}`}
+      className={` cursor-pointer py-3 text-sm font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/furniture") && "text-black border-b-red-500"}`}
       onClick={()=>navigate("/furniture")}>Furniture</li>
       </ul> )
     }
@@ -109,7 +109,7 @@ export default function Header() {
    }
   return (
   
-    <div className='bg-[#273B42] border-b shadow-sm sticky top-0 z-40'>
+    <div className='bg-[#0B415A] border-b shadow-sm sticky top-0 z-40'>
     
     <div className='flex justify-between items-center px-3 max-w-6xl mx-auto'>
       <div>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    background-color: #AEC6CF;
+    background-color: #89CFF0;
 }
 @layer base {
     body {
@@ -19,16 +19,16 @@ body{
     }
     .title,
     .section-title {
-      @apply text-6xl lg:text-4xl mb-6 font-bold;
+      @apply text-6xl lg:text-7xl mb-6 font-bold;
     }
     .h2 {
       @apply text-5xl lg:text-7xl font-bold;
     }
     .pretitle {
-      @apply text-lg lg:text-[22px] text-light mb-4 lg:mb-6 uppercase font-normal;
+      @apply text-lg lg:text-[22px] text-[#115E83] mb-4 lg:mb-6 uppercase font-normal;
     }
     .lead {
-      @apply text-2xl text-light font-normal mb-6;
+      @apply text-2xl text-[#115E83] font-normal mb-6;
     }
     .link {
       @apply text-lg text-dark;
@@ -59,6 +59,16 @@ body{
     }
     .btn-link {
       @apply text-accent text-xl lg:text-2xl;
+    }
+    .content {
+      position: relative;
+      z-index: 100;
+    }
+    .background {
+      position: absolute; 
+      top: 0%;
+      right: 50;
+      
     }
   }
   

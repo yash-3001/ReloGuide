@@ -43,7 +43,7 @@ export const nav = [
 
 export const hero = {
   title: 'ReWork ReMake ReModel',
-  subtitle: 'with us',
+  subtitle: 'Relocation at the tip of your fingers',
   btnText: 'Try free demo',
   compText: 'Web, iOS and Android',
   image: HeroImg,
@@ -77,28 +77,28 @@ export const overview = {
 
 export const features = {
   feature1: {
-    pretitle: 'Alwalys online',
-    title: 'Find',
+    pretitle: 'At your service',
+    title: 'Find Everything at one place',
     subtitle:
-      'Tellus lacus morbi sagittis lacus in. Amet nisl at mauris enim accumsan nisi, tincidunt vel. Enim ipsum, amet quis ullamcorper eget ut.',
+      'Our aim is to give you a hassle free Re-Location experience by bringing all your needs at one place',
     btnLink: 'Learn more',
     btnIcon: ArrowRightImg,
     image: Feature1Img,
   },
   feature2: {
-    pretitle: 'Free some cost',
-    title: 'Save cost for you and family',
+    pretitle: 'Need Healthy Food?',
+    title: 'Cooking Help at your Doorstep',
     subtitle:
-      'Tellus lacus morbi sagittis lacus in. Amet nisl at mauris enim accumsan nisi, tincidunt vel. Enim ipsum, amet quis ullamcorper eget ut.',
+      'Professional chefs at your doorstep to get you the food you like from the chef you like',
     btnLink: 'Learn more',
     btnIcon: ArrowRightImg,
     image: Feature2Img,
   },
   feature3: {
-    pretitle: 'Use anytime',
-    title: 'Use anytime when you need',
+    pretitle: 'No time to Maintain Home?',
+    title: 'HouseMaid for your Aid',
     subtitle:
-      'Tellus lacus morbi sagittis lacus in. Amet nisl at mauris enim accumsan nisi, tincidunt vel. Enim ipsum, amet quis ullamcorper eget ut.',
+      'Professional House-Maid at your doorstep to Help you with daily chores!!!',
     btnLink: 'Learn more',
     btnIcon: ArrowRightImg,
     image: Feature3Img,
@@ -108,12 +108,12 @@ export const features = {
 export const product = {
   title: 'The Product you need.',
   subtitle:
-    'Tellus lacus morbi sagittis lacus in. Amet nisl at mauris enim aumsan nisi, tincidunt vel. Enim ipsum, at quis ullamcorper eget ut.',
+    'Providing One for All in the most convenient and hassle-free way',
   cards: [
     {
       icon: CardIconImg1,
       title: 'Lorem',
-      subtitle: 'Elit esse cillum dolore eu fugiat nulla pariatur',
+      subtitle: 'Hey',
       delay: 200,
     },
     {
