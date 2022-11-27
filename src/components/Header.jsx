@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import { useLocation ,useNavigate} from 'react-router'
-import {getAuth,onAuthStateChanged} from "firebase/auth"
+import {getAuth,onAuthStateChanged, signOut} from "firebase/auth"
 
 // import data
 import { header } from '../data';
@@ -28,19 +28,31 @@ export default function Header() {
   });
   const [currentUrl,setCurrentUrl]=useState(null)
   const [pageState,setpageState]=useState("Sign-in")
+  const [loginState,setloginState]=useState(false)
   const location=useLocation();
   const navigate=useNavigate();
   const auth=getAuth();
   useEffect(()=>{
     onAuthStateChanged(auth,(user)=>{
       if(user){
-        setpageState("Profile")
+        setloginState(true)
+        
+        setpageState("Profile") 
+      
       }
       else{
         setpageState("Sign-in")
       }
     })
   },[auth])
+
+  console.log(loginState)
+  function onLogout(){
+    auth.signOut()
+    setloginState(false)
+    navigate("/")
+  }
+
   function pathMathRoute(route){
     if(route===location.pathname){
       setCurrentUrl(route)
@@ -71,9 +83,13 @@ export default function Header() {
          onClick={()=>navigate("/offers")}> Offers</li>
         <li
          className={` cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent 
-         ${(pathMathRoute("/sign-in") || pathMathRoute("/profile")) && "text-black border-b-red-500"}`}
+         ${(pathMathRoute("/sign-in") || pathMathRoute("/profile"))  && "text-black border-b-red-500"}`}
          onClick={()=>navigate("/profile")}
          >{pageState}</li>
+         {loginState ?  <li
+         className={` cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+         onClick={onLogout}> logout</li> :""} 
+       
       </ul>)
      }
 

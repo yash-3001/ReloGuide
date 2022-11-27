@@ -15,7 +15,9 @@ export default function ListingItem({listing,id,onEdit,onDelete}) {
         <div className='w-full p-[10px'>
           <div className='flex items-center space-x-1'>
             <MdLocationPin className='h-4 w-4 text-green-600'/>
-            <p className='font-semibold text-sm mb-[2px text-gray-600 truncate'> {listing.address}</p>
+            <p className='font-semibold text-sm mb-[2px text-gray-600 truncate'> {listing.locality}</p>
+            <p className='font-semibold text-sm mb-[2px text-gray-600 truncate'>, {listing.city}</p>
+            <p className='font-semibold text-sm mb-[2px text-gray-600 truncate'>, {listing.state}</p>
           </div>
           <p className='font-semibold text-xl m-0 truncate'>{listing.name}</p>
           <p className="text-[#457b9d] mt-2 font-semibold">

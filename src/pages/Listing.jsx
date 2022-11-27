@@ -65,7 +65,7 @@ export default function Listing() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className='fixed top-[13%] right-[3% z-10 bg-white cursor-pointer border- border-gray-400 rounded-full w-12 h-12 flex justify-center items-center'
+      <div className='fixed top-[13%] right-[3%] z-10 bg-white cursor-pointer border- border-gray-400 rounded-full w-12 h-12 flex justify-center items-center'
       onClick={()=>{
         navigator.clipboard.writeText(window.location.href)
         setshareLinkCopy(true)
@@ -86,7 +86,16 @@ export default function Listing() {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                    {listing.type === "rent" ? " / month" : ""}
           </p>
-          <p className='flex items-center mt-6 mb-3 font-semibold'><FaMapMarkerAlt className='text-green-700 mr-1'/>{listing.address}</p>
+          <div className='flex'>
+          <p className='flex items-center mt-6 mb-3 font-semibold'><FaMapMarkerAlt className='text-green-700 mr-1'/>{listing.locality
+          }</p>
+          <p className='flex items-center mt-6 mb-3 font-semibold'>, {listing.city 
+          }</p>
+          <p className='flex items-center mt-6 mb-3 font-semibold'>, {listing.state 
+          }</p>
+
+          </div>
+         
         <div className='flex justify-start items-center space-x-4 w-[75%]'>
           <p className='bg-red-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md'>{listing.type==="rent"?"Rent":"Sale"}</p>
           {listing.offer &&(
@@ -143,7 +152,7 @@ export default function Listing() {
               position={[listing.geolocation.lat, listing.geolocation.lng]}
             >
               <Popup>
-                {listing.address}
+                {listing.locality}
               </Popup>
             </Marker>
           </MapContainer>

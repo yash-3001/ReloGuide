@@ -20,14 +20,18 @@ export default function CreateListing() {
         bathrooms:1,
         furnished:false,
         parking:false,
-        address:"",
         description:"",
         offer:false,
         regularPrice:0,
         discountedPrice:0,
         images:{},
         latitude:0,
-        longitude:0
+        longitude:0,
+        locality:"",
+        city:"",
+        state:""
+        
+      
     })
     function onChange(e){
         let boolean =null;
@@ -73,12 +77,14 @@ export default function CreateListing() {
             'X-RapidAPI-Host': 'opencage-geocoder.p.rapidapi.com'
           }
         };
+        const address=locality+","+city+","+state
+        console.log(address)
     //geocoding  
   fetch(`https://opencage-geocoder.p.rapidapi.com/geocode/v1/json?q=${address}&key=a0ee04a337ce4d1f8164fcc65db3c42f&language=en`, options)
           .then(response =>response.json())
           .then(response =>{
             console.log(response)
-            const data =response
+            // const data =response
            
             geolocation.lat = response.results[0]?.geometry.lat ?? 0;
             geolocation.lng = response.results[0]?.geometry.lng ?? 0;
@@ -143,6 +149,9 @@ export default function CreateListing() {
         )
     const formDataCopy={
       ...formData,
+      locality,
+      city,
+      state,
       imgUrls,
       geolocation,
       timestamp:serverTimestamp(),
@@ -159,7 +168,7 @@ export default function CreateListing() {
    navigate(`/category/${formDataCopy.type}/${docRef.id}`)
     }
  //destructring 
-    const {type,name,bedrooms,bathrooms,parking,furnished,address,description,offer,regularPrice,discountedPrice,images,latitude,longitude}=formData;
+    const {type,name,bedrooms,bathrooms,parking,furnished,description,offer,regularPrice,discountedPrice,images,latitude,longitude,locality,city,state}=formData;
   if(loading){
     return <Spinner/>
   }
@@ -238,8 +247,26 @@ export default function CreateListing() {
           </button>
         </div>
             <p className='text-lg font-semibold mt-6'>Address</p>
-            <textarea type="text" id="address" value={address} onChange={onChange} placeholder="Address"  required 
+            <p className='text-sm font-semibold text-gray-700  mt-1'>Locality</p>
+            <textarea type="text" id="locality" value={locality} onChange={onChange} placeholder="Locality" maxLength="32" required 
             className=" w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transi duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"/>
+            <div className='flex space-x-6  ' ></div>
+
+            <p className='text-sm font-semibold text-gray-700  mt-1'>City</p>
+            <textarea type="text" id="city" value={city} onChange={onChange} placeholder="City" maxLength="32"  required 
+            className=" w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transi duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"/>
+            <div className='flex space-x-6  ' ></div>
+            <p className='text-sm font-semibold text-gray-700  mt-1'>State</p>
+            <textarea type="text" id="state" value={state} onChange={onChange} placeholder="State" maxLength="32"  required 
+            className=" w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transi duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"/>
+            <div className='flex space-x-6 ' ></div>
+            
+
+            {/* <textarea type="text" id="address" value={address} onChange={onChange} placeholder="Address"  required 
+            className=" w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transi duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"/> */}
+             
+            {/* <textarea type="text" id="add_line1" value={add_line1} onChange={onChange} required/>
+            <textarea type="text" id="add_line2" value={add_line2} onChange={onChange} required/> */}
             {!geolocationEnabled && (
               <div className='flex space-x-6 justify-start mb-6'>
                 <div>

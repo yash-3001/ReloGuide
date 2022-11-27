@@ -6,8 +6,40 @@ import { Link } from 'react-router-dom'
 import ListingItem from '../components/ListingItem'
 import Slider from '../components/Slider'
 import { db } from '../firebase'
-
+import {AiOutlineSearch} from 'react-icons/ai'
+import {FaParking} from 'react-icons/fa'
 export default function Home() {
+//search bar
+const [searchInput, setSearchInput] = useState("");
+const [searchResult,setSearchResult]=useState(null)
+  function handleChange(e) {
+  e.preventDefault();
+  setSearchInput(e.target.value);
+
+
+}
+async function fetchSearchResult(){
+  if (searchInput.length > 0) {
+    const listingRef=collection(db,"listings")
+  //   listingRef.city.filter((city) => {
+  //     return city.name.match(searchInput);
+  // });
+  console.log(searchInput)
+  const q=query(listingRef,where("city","==",searchInput))
+  const querySnap=await getDocs(q)
+  const listings=[]
+          querySnap.forEach((doc)=>{
+            return listings.push({
+              id:doc.id,
+              data:doc.data()
+            })
+          })
+          setSearchResult(listings)
+  }
+}
+
+
+
  //Offers
  const [offerListings,setofferListings]=useState(null)
  useEffect(()=>{
@@ -94,7 +126,27 @@ export default function Home() {
   return (
     <div>
     <Slider/>
+    <div className='flex'>
+    <input
+   type="text"
+   placeholder="Search by city name"
+   onChange={handleChange}
+   value={searchInput} />
+   <AiOutlineSearch className='text-lg mr-1 mt-4'  onClick={fetchSearchResult}/>
+    </div>
+    
     <div className='max-w-6xl mx-auto pt-4 space-y-6'>
+    {searchResult && searchResult.length>0 && (
+        <div className='m-2 mb-6 ' >
+          <h2 className='px-3 text-2xl mt-6 font-semibold'>Search Results</h2>
+          <Link to="/offers"><p className='px-3 text-sm text-blue-600 hover:text-blue-800 transition  duration-150 ease-in-out'>Show more offers</p></Link>
+          <ul className='sm:grid sm:grid-cols lg:grid-cols-3 xl:grid-cols-4 space-x-4'>
+            {searchResult.map((listing)=>(
+              <ListingItem key={listing.id} listing={listing.data} id={listing.id}/>
+            ))}
+          </ul>
+        </div>
+      )}
       {offerListings && offerListings.length>0 && (
         <div className='m-2 mb-6 ' >
           <h2 className='px-3 text-2xl mt-6 font-semibold'>Recent Offers</h2>
