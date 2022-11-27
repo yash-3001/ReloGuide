@@ -27,6 +27,7 @@ module.exports = {
         grey: '#F5F5F5',
       },
       backgroundImage: {
+        hero1: "url('/src/assests/img/hero/image.svg')",
         overview: "url('/src/assests/img/overview/bg.svg')",
         cta: "url('/src/assests/img/cta/bg.svg')",
       },

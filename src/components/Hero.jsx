@@ -6,10 +6,10 @@ import { HiOutlineChevronDown } from 'react-icons/hi';
 
 const Hero = () => {
   // destructure hero data
-  const { title, subtitle, image } = hero;
+  const { title, subtitle} = hero;
   return (
-    <section className='min-h-[600px] py-12'>
-      <div className='relative container mx-auto min-h-[600px] flex justify-center items-center'>
+    <section className='min-h-[600px] py-12 bg-hero1 bg-no-repeat bg-cover'>
+      <div className='container mx-auto min-h-[600px] flex justify-center items-center '>
         <div className='items-center justify-center text-center lg:text-left'>
           {/* text */}
           <div className='content relative text-6xl lg:text-6xl'>
@@ -40,13 +40,11 @@ const Hero = () => {
               <span className='text-light lg:lead lg:mb-0'>{compText}</span>
             </div> */}
           </div>
-          {/* image */}
-          
         </div>
-        <div className='background absolute' data-aos='fade-up' data-aos-delay='800'>
-            <img className='opacity-40' src={image} alt='' />
-          </div>
+        {/* image */}
       </div>
+      {/* <img className='object-cover h-50 w-full opacity-40' src={image} alt='' /> */}
+
     </section>
   );
 };
