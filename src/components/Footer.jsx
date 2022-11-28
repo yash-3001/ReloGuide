@@ -6,14 +6,14 @@ import Copyright from './Copyright';
 
 const Footer = () => {
   // destructure footer data
-  const { logo, links, legal, newsletter, form } = footer;
+  const {links, legal, newsletter, form } = footer;
   return (
     <footer className='pt-[142px] pb-[60px]'>
       <div className='container mx-auto'>
         <div className='flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left lg:justify-between gap-y-8'>
           {/* logo */}
           <div data-aos='fade-up' data-aos-offset='200' data-aos-delay='300'>
-            <img src={logo} alt='' />
+            {/* <img src={logo} alt='' /> */}
           </div>
           {/* list 1 */}
           <div data-aos='fade-up' data-aos-offset='200' data-aos-delay='500'>

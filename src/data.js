@@ -1,15 +1,15 @@
 // import images
 import LogoImg from '../src/assests/img/header/logo.svg';
-import HeroImg from '../src/assests/img/hero/image.svg';
-import OverviewProductImg from '../src/assests/img/overview/product.svg';
+// import HeroImg from '../src/assests/img/hero/image_hero.svg';
+import OverviewProductImg from '../src/assests/img/overview/new.svg';
 import FacebookImg from '../src/assests/img/overview/brands/facebook.svg';
 import GoogleImg from '../src/assests/img/overview/brands/google.svg';
 import CocaColaImg from '../src/assests/img/overview/brands/coca-cola.svg';
 import LinkedInImg from '../src/assests/img/overview/brands/linkedin.svg';
 import SamsungImg from '../src/assests/img/overview/brands/samsung.svg';
-import Feature1Img from '../src/assests/img/features/feature1-img.svg';
-import Feature2Img from '../src/assests/img/features/feature2-img.svg';
-import Feature3Img from '../src/assests/img/features/feature3-img.svg';
+import Feature1Img from '../src/assests/img/features/udfeature1-img.svg';
+import Feature2Img from '../src/assests/img/features/udfeature2-img.svg';
+import Feature3Img from '../src/assests/img/features/udfeature3-img.svg';
 import ArrowRightImg from '../src/assests/img/features/arrow-right.svg';
 import CardIconImg1 from '../src/assests/img/product/cards/icon1.svg';
 import CardIconImg2 from '../src/assests/img/product/cards/icon2.svg';
@@ -22,8 +22,8 @@ import AvatarImg2 from '../src/assests/img/testimonial/avatar2.png';
 import AvatarImg3 from '../src/assests/img/testimonial/avatar3.png';
 import AvatarImg4 from '../src/assests/img/testimonial/avatar4.png';
 import AvatarImg5 from '../src/assests/img/testimonial/avatar5.png';
-import CtaImg1 from '../src/assests/img/cta/image1.svg';
-import CtaImg2 from '../src/assests/img/cta/image2.svg';
+import CtaImg1 from '../src/assests/img/cta/udimage1.svg';
+import CtaImg2 from '../src/assests/img/cta/udimage2.svg';
 import FacebookIcon from '../src/assests/img/copyright/facebook.svg';
 import TwitterIcon from '../src/assests/img/copyright/twitter.svg';
 import LinkedinIcon from '../src/assests/img/copyright/linkedin.svg';
@@ -46,7 +46,7 @@ export const hero = {
   subtitle: 'Relocation at the tip of your fingers',
   btnText: 'Try free demo',
   compText: 'Web, iOS and Android',
-  image: HeroImg,
+  // image: HeroImg,
 };
 
 export const overview = {

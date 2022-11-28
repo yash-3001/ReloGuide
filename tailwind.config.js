@@ -22,12 +22,12 @@ module.exports = {
       colors: {
         dark: '#292830',
         light: '#BDBDBD',
-        accent: '#FF7235',
-        accentHover: '#e05216',
+        accent: '#6963FF',
+        accentHover: '#1B99D4',
         grey: '#F5F5F5',
       },
       backgroundImage: {
-        hero1: "url('/src/assests/img/hero/image.svg')",
+        hero1: "url('/src/assests/img/hero/undraw_hero_1.svg')",
         overview: "url('/src/assests/img/overview/bg.svg')",
         cta: "url('/src/assests/img/cta/bg.svg')",
       },

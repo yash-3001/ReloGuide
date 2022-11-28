@@ -8,7 +8,7 @@ const Hero = () => {
   // destructure hero data
   const { title, subtitle} = hero;
   return (
-    <section className='min-h-[600px] py-12 bg-hero1 bg-no-repeat bg-cover'>
+    <section className='min-h-[600px] py-12 bg-hero1 bg-cover bg-no-repeat bg-center'>
       <div className='container mx-auto min-h-[600px] flex justify-center items-center '>
         <div className='items-center justify-center text-center lg:text-left'>
           {/* text */}
@@ -44,7 +44,6 @@ const Hero = () => {
         {/* image */}
       </div>
       {/* <img className='object-cover h-50 w-full opacity-40' src={image} alt='' /> */}
-
     </section>
   );
 };

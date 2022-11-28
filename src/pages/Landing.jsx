@@ -12,7 +12,7 @@ import Brands from '../components/Brands';
 import Feature1 from '../components/Feature1';
 import Feature2 from '../components/Feature2';
 import Feature3 from '../components/Feature3';
-import Product from '../components/Product';
+// import Product from '../components/Product';
 import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
 import Cta from '../components/Cta';
@@ -32,7 +32,6 @@ export default function Landing() {
         <Feature1 />
         <Feature2 />
         <Feature3 />
-        <Product />
         <Pricing />
         <Testimonials />
         <Cta />
