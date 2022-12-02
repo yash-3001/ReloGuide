@@ -17,6 +17,12 @@ body{
     h6 {
       @apply text-dark;
     }
+    .logo {
+      position: absolute;
+      height: auto;
+      left: 0;
+      width: 250px;
+    }
     .title,
     .section-title {
       @apply text-6xl lg:text-7xl mb-6 font-bold;

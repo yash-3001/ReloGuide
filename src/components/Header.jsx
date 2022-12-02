@@ -113,7 +113,7 @@ export default function Header() {
     
     <div className='flex justify-between items-center px-3 max-w-6xl mx-auto'>
       <div>
-           <img src="https://d3ds86a50t7cic.cloudfront.net/assets/6.4/public/default/frontend/mathrubhumi/images/popup-logo.webp" alt="logo" 
+           <img src="https://api.logo.com/api/v2/images?format=webp&logo=logo_77cec6d8-830f-4a62-b6ea-54077f1f56d9&width=2000&quality=100&background=transparent&fit=contain&u=1669869643" alt="logo" 
            className='h-14 cursor-pointer'
            onClick={()=>navigate("/")}
            />
