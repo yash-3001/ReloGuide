@@ -38,7 +38,7 @@ const ClientSlider = ({ clients }) => {
           <SwiperSlide
             key={index}
             style={{ borderColor: borderColor }}
-            className='border-t-[10px] rounded-t-[12px]'
+            className='border-t-[10px] rounded-t-[12px] text-white'
           >
             {/* card */}
             <div className='w-full mx-auto lg:max-w-[300px] xl:max-w-[350px] h-[250px] rounded-[12px] border border-grey py-6 px-[30px]'>
@@ -47,8 +47,8 @@ const ClientSlider = ({ clients }) => {
               {/* person name, img & position */}
               <div className='flex gap-x-[10px]'>
                 <img src={image} alt='' />
-                <div className='font-bold'>{name}</div>
-                <div className='text-light'>{position}</div>
+                <div className='font-bold text-orange-400'>{name}</div>
+                <div className=' text-orange-100'>{position}</div>
               </div>
             </div>
           </SwiperSlide>

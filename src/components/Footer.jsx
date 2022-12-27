@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
           {/* list 1 */}
           <div data-aos='fade-up' data-aos-offset='200' data-aos-delay='500'>
-            <div className='text-2xl uppercase font-medium mb-6'>Links</div>
+            <div className='text-2xl uppercase font-medium mb-6 text-orange-500'>Links</div>
             <ul className='flex flex-col gap-y-3'>
               {links.map((item, index) => {
                 // destructure item
@@ -25,7 +25,7 @@ const Footer = () => {
                 return (
                   <li key={index}>
                     <a
-                      className='font-medium hover:text-accent transition'
+                      className='font-medium hover:text-accent transition text-cyan-600'
                       href={href}
                     >
                       {name}
@@ -37,8 +37,8 @@ const Footer = () => {
           </div>
           {/* list 2 */}
           <div data-aos='fade-up' data-aos-offset='200' data-aos-delay='700'>
-            <div className='text-2xl uppercase font-medium mb-6'>Legal</div>
-            <ul className='flex flex-col gap-y-3'>
+            <div className='text-2xl uppercase font-medium mb-6 text-orange-500'>Legal</div>
+            <ul className='flex flex-col gap-y-3  text-cyan-600'>
               {links.map((item, index) => {
                 // destructure item
                 const { href, name } = item;
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
           {/* newsletter */}
           <div data-aos='fade-up' data-aos-offset='200' data-aos-delay='900'>
-            <div className='text-2xl uppercase font-medium mb-6'>
+            <div className='text-2xl uppercase font-medium mb-6 text-orange-500'>
               {newsletter.title}
             </div>
             <div className='text-xl text-light mb-[18px]'>
@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
         </div>
         <hr
-          className='mt-10 mb-5'
+          className='mt-10 mb-5 '
           data-aos='fade-up'
           data-aos-offset='100'
           data-aos-delay='200'

@@ -7,7 +7,7 @@ const Copyright = () => {
   const { link1, link2, copyText, social } = copyright;
   return (
     <div
-      className='flex flex-col items-center gap-y-2 lg:flex-row lg:justify-between'
+      className='flex flex-col items-center gap-y-2 lg:flex-row lg:justify-between  text-white'
       data-aos='fade-up'
       data-aos-offset='0'
       data-aos-delay='200'

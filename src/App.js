@@ -14,6 +14,10 @@ import CreateListing from "./pages/CreateListing";
 import EditListing from "./pages/EditListing";
 import Listing from "./pages/Listing";
 import Category from "./pages/Category";
+import FurnitureHome from "./pages/FurnitureHome";
+import SaleFurniture from "./pages/SaleFurniture";
+import BuyFurniture from "./pages/BuyFurniture";
+import RentFurniture from "./pages/RentFurniture";
 function App() {
   return (
     <>
@@ -38,6 +42,12 @@ function App() {
         <Route path="edit-listing" element={<PrivateRoute/>}>
         <Route path="/edit-listing/:listingId" element={<EditListing/>}/>
         </Route>
+        <Route path="/furniture" element={<FurnitureHome/>}/>
+        <Route path="SaleFurniture" element={<PrivateRoute/>}>
+        <Route path="/SaleFurniture" element={<SaleFurniture/>}/>
+        </Route>
+        <Route path="/BuyFurniture" element={<BuyFurniture/>}/>
+        <Route path="/RentFurniture" element={<RentFurniture/>}/>
       </Routes>
     </Router>
     
@@ -56,5 +66,6 @@ theme="dark"
     </>
   );
 }
+
 
 export default App;

@@ -27,14 +27,14 @@ export default function Landing() {
     return (
         <div className='overflow-hidden'>
         <Hero />
-        <Overview />
-        <Brands />
+       
+        
         <Feature1 />
         <Feature2 />
         <Feature3 />
         <Pricing />
         <Testimonials />
-        <Cta />
+        
         <Footer />
         {/* <div className='h-[4000px]'></div> */}
       </div>

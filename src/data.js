@@ -42,8 +42,10 @@ export const nav = [
 ];
 
 export const hero = {
-  title: 'ReWork ReMake ReModel',
-  subtitle: 'Relocation at the tip of your fingers',
+  title1: 'ReWork' ,
+  title2:'ReMake',
+  title3:'ReModel',
+  subtitle: 'Making a move simple. Moving with Movens',
   btnText: 'Try free demo',
   compText: 'Web, iOS and Android',
   // image: HeroImg,
@@ -78,7 +80,7 @@ export const overview = {
 export const features = {
   feature1: {
     pretitle: 'At your service',
-    title: 'Find Everything at one place',
+    title: 'Searching for a place to call home?',
     subtitle:
       'Our aim is to give you a hassle free Re-Location experience by bringing all your needs at one place',
     btnLink: 'Learn more',
