@@ -36,6 +36,7 @@ export default function Listing() {
         }
         fetchListing();
       }, [params.listingId]);
+    
       if (loading) {
         return <Spinner />;
       }
@@ -56,7 +57,7 @@ export default function Listing() {
               className="relative w-full overflow-hidden h-[300px]"
              
               style={{
-                background: `url(${listing.imgUrls[index]}) center no-repeat`,
+                background: `url(${listing.imgUrls[index]})  no-repeat`,
                 backgroundSize: "cover",
               }}
             >
@@ -79,21 +80,17 @@ export default function Listing() {
         <p className=' fixed top-[23%] right[5%] font-semibold border-2 border-gray-400  rounded-md bg-white z-10 px-4'>Link copied</p>
       )}
       <div className='m-4  flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg  shadow-lg bg-white lg:space-x-5'>
-        <div className=' w-full '>
+        <div className='w-full'>
           <p className='text-2xl font-bold mb-3 text-blue-900 '>
-            {listing.name} - ${listing.offer?listing.discountedPrice.toString()
+            {listing.name} - Rs{listing.offer?listing.discountedPrice.toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ","):listing.regularPrice.toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                    {listing.type === "rent" ? " / month" : ""}
           </p>
           <div className='flex'>
-          <p className='flex items-center mt-6 mb-3 font-semibold'><FaMapMarkerAlt className='text-green-700 mr-1'/>{listing.locality
-          }</p>
-          <p className='flex items-center mt-6 mb-3 font-semibold'>, {listing.city 
-          }</p>
-          <p className='flex items-center mt-6 mb-3 font-semibold'>, {listing.state 
-          }</p>
-
+          <p className='flex items-center mt-6 mb-3 font-semibold'><FaMapMarkerAlt className='text-green-700 mr-1'/>{listing.locality}</p>
+          <p className='flex items-center mt-6 mb-3 font-semibold'>, {listing.city}</p>
+          <p className='flex items-center mt-6 mb-3 font-semibold'>, {listing.state }</p>
           </div>
          
         <div className='flex justify-start items-center space-x-4 w-[75%]'>
