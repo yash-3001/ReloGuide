@@ -1,18 +1,22 @@
 import { getAuth, updateProfile } from 'firebase/auth'
-import { updateDoc,doc, collection, query, where, orderBy, getDocs, deleteDoc } from 'firebase/firestore'
+import { updateDoc, doc, collection, query, where, orderBy, getDocs, deleteDoc} from 'firebase/firestore'
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate ,Link} from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { db } from '../firebase'
-import {FcHome} from 'react-icons/fc'
+import {FcHome, FcServices} from 'react-icons/fc'
 import { useEffect } from 'react'
 import ListingItem from '../components/ListingItem'
+import ServicelistingItem from '../components/ServicelistingItem'
+
 export default function Profile() {
   const auth=getAuth()
   const navigate=useNavigate()
   const [changeDetail,setchangeDetail]=useState(false); //edit
   const [listings,setListings]=useState(null)
+  const [servicelistings,setServiceListings] = useState(null);
+  const [serviceloading,setServiceloading] = useState(true);
   const [loading,setLoading]=useState(true)
   const [formData,setformData]=useState({
     name:auth.currentUser.displayName,
@@ -65,8 +69,30 @@ export default function Profile() {
         setLoading(false)
       }
       fetchUserListings();
+
   },[auth.currentUser.uid])  //each time the user changes the useEffect will be triggered and new data will be fetched
-  
+  useEffect(()=>{
+    async function fetchUserServicelistings(){
+      const serviceListingRef = collection(db,"servicelistings");
+      const q = query(
+        serviceListingRef, 
+        where("userRef", "==",auth.currentUser.uid), 
+        orderBy("timestamp","desc")
+      );
+      const querySnap = await getDocs(q);
+      let servicelistings = [];
+      querySnap.forEach((doc)=>{
+        return servicelistings.push({
+          id:doc.id,
+          data:doc.data(),
+        });
+      } );
+      setServiceListings(servicelistings);
+      setServiceloading(false);
+    }
+    fetchUserServicelistings();
+  },[auth.currentUser.uid]);
+
   async function onDelete(listingID) {
     if (window.confirm("Are you sure you want to delete?")) {
       await deleteDoc(doc(db, "listings", listingID));
@@ -79,6 +105,19 @@ export default function Profile() {
   }
   function onEdit(listingID){
     navigate(`/edit-listing/${listingID}`)
+  }
+  async function onDeleteService(servicelistingID) {
+    if (window.confirm("Are you sure you want to delete?")) {
+      await deleteDoc(doc(db, "servicelistings", servicelistingID));
+      const updatedServicelistings = servicelistings.filter(
+        (servicelisting) => servicelisting.id !== servicelistingID
+      );
+      setServiceListings(updatedServicelistings);
+      toast.success("Successfully deleted the service listing");
+    }
+  }
+  function onEditService(servicelistingID){
+    navigate(`/edit-listing-services/${servicelistingID}`)
   }
   return (
     <>
@@ -109,6 +148,13 @@ export default function Profile() {
           </Link>
           
         </button>
+        <button type="submit" className='w-full bg-blue-600 text-white uppercase px-7 py-3 text-sm font-medium rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800 mt-5 '>
+          <Link to="/create-listing-services" className="flex justify-center items-center">
+          <FcServices className='mr-2 text-3xl bg-red-200 rounded-full p-1 border-2'/>
+          Offer your services
+          </Link>
+          
+        </button>
       </div>
     </section>
     <div className='max-w-6xl px-3 mt-6 mx-auto'> 
@@ -119,6 +165,25 @@ export default function Profile() {
         <ul className='sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl-grid-cols-5 mx-auto space-x-6 items-center justify-center'>
           {listings.map((listing)=>(
             <ListingItem key={listing.id} id={listing.id} listing={listing.data} onDelete={()=>onDelete(listing.id)}  onEdit={()=>onEdit(listing.id)} />
+          ))}
+        </ul>
+        </>
+      )}
+    </div>
+    <div className='max-w-6xl px-3 mt-6 mx-auto'> 
+      {/* view this section only when page is loaded and number of listings is greater than 0 */}
+      {!serviceloading && servicelistings.length>0 &&(
+        <>
+        <h2 className='text-2xl text-center font-semibold mb-6 mt-6'> My Services Listings</h2>
+        <ul className='sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl-grid-cols-5 mx-auto space-x-6 items-center justify-center'>
+          {servicelistings.map((servicelisting)=>(
+            <ServicelistingItem 
+              key={servicelisting.id}
+              id={servicelisting.id} 
+              servicelisting={servicelisting.data}
+              onDeleteService={()=>onDeleteService(servicelisting.id)}
+              onEditService={()=>onEditService(servicelisting.id)}
+            />
           ))}
         </ul>
         </>

@@ -119,9 +119,27 @@ export default function Header() {
       </ul>)
      }
 
+     if(location.pathname==='/services' ){
+      return (<ul className='flex space-x-10'>
+        <li 
+      className={` cursor-pointer py-3 text-lg  font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/listingsHome")}>Home</li>
+        <li
+      className={` cursor-pointer py-3 text-lg  font-semibold text-gray-400 border-b-[3px] border-b-transparent 
+        ${(pathMathRoute("/sign-in") || pathMathRoute("/profile")) && "text-black border-b-red-500"}`}
+        onClick={()=>navigate("/profile")}
+        >{pageState}</li>
+        {loginState ?  <li
+      className={` cursor-pointer py-3  text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+        onClick={onLogout}> Logout</li> : <li
+      className={` cursor-pointer py-3 text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+        onClick={()=>navigate("/sign-in")}> Sign-in</li>} 
+      </ul>)
+     }
+
      if(location.pathname==='/furniture'){
       return(<ul className='flex space-x-10'>
-       <li 
+      <li 
       className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
       onClick={()=>navigate("/BuyFurniture")}>Buy</li>
       <li 
@@ -162,11 +180,7 @@ export default function Header() {
     
     <div className='flex justify-between items-center px-3 max-w-6xl mx-auto'>
       <div>
-<<<<<<< HEAD
            {/* <img src="https://d3ds86a50t7cic.cloudfront.net/assets/6.4/public/default/frontend/mathrubhumi/images/popup-logo.webp" alt="logo" 
-=======
-           <img src="https://api.logo.com/api/v2/images?format=webp&logo=logo_77cec6d8-830f-4a62-b6ea-54077f1f56d9&width=2000&quality=100&background=transparent&fit=contain&u=1669869643" alt="logo" 
->>>>>>> 414e26a675f5fdc7ea51cfcd3025e47573abb843
            className='h-14 cursor-pointer'
            onClick={()=>navigate("/")}
            /> */}

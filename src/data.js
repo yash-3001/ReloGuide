@@ -275,3 +275,17 @@ export const copyright = {
     { icon: LinkedinIcon, href: '/' },
   ],
 };
+//Service Page data
+export const heroservices = {
+  title1: "Home",
+  title2: "services,",
+  title3: "on",
+  title4: "demand.",
+  subtitle: 'Home/"live location"',
+}
+
+// export const productservices = {
+  
+// }
+
+

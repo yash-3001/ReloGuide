@@ -13,7 +13,11 @@ import PrivateRoute from "./components/PrivateRoute";
 import CreateListing from "./pages/CreateListing";
 import EditListing from "./pages/EditListing";
 import Listing from "./pages/Listing";
+import Servicelisting from "./pages/Servicelisting";
 import Category from "./pages/Category";
+import ServicesHome from "./pages/ServicesHome";
+import CreateListingServices from "./pages/CreateListingServices";
+import EditServicelisting from "./pages/EditServicelisting";
 import FurnitureHome from "./pages/FurnitureHome";
 import SaleFurniture from "./pages/SaleFurniture";
 import BuyFurniture from "./pages/BuyFurniture";
@@ -33,6 +37,7 @@ function App() {
         <Route path="/sign-up" element={<Signup/>}/>
         <Route path="/forgot-password" element={<ForgotPassword/>}/>
         <Route path="/category/:categoryName/:listingId" element={<Listing/>}/>
+        <Route path="/servicecategory/:servicecategoryName/:servicelistingId" element={<Servicelisting />}/>
         
         <Route path="/offers" element={<Offers/>}/> 
         <Route path="/category/:categoryName" element={<Category/>}/> 
@@ -41,6 +46,13 @@ function App() {
         </Route>
         <Route path="edit-listing" element={<PrivateRoute/>}>
         <Route path="/edit-listing/:listingId" element={<EditListing/>}/>
+        </Route>
+        <Route path="/services" element={<ServicesHome/>}></Route>
+        <Route path="create-listing-services" element={<PrivateRoute/>}>
+          <Route path="/create-listing-services" element={<CreateListingServices/>}/>
+        </Route>
+        <Route path="edit-listing-services" element={<PrivateRoute/>}>
+          <Route path="/edit-listing-services/:servicelistingId" element={<EditServicelisting/>}/>
         </Route>
         <Route path="/furniture" element={<FurnitureHome/>}/>
         <Route path="SaleFurniture" element={<PrivateRoute/>}>

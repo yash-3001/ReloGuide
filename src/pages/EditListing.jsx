@@ -183,7 +183,9 @@ useEffect(()=>{
     }
     else{
         navigate("/")
-        toast.error("Listing doesnot exist")
+        toast.error("Listing does not exist")
+
+
     }
    }
    fetchListing()

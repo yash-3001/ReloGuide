@@ -9,7 +9,6 @@ import {v4 as uuidv4} from "uuid"
 import { addDoc, collection, serverTimestamp, Timestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 // import { Calendar } from 'react-date-picker';
-import {DatePicker,Calendar }from "react-datepicker"
 export default function SaleFurniture() {
   const navigate=useNavigate();
   const auth=getAuth();
@@ -58,7 +57,7 @@ export default function SaleFurniture() {
       e.preventDefault();
       setLoading(true);
      
-      if(images.length>6){ //more than 6 images are not aloowed in database
+      if(images.length>6){ //more than 6 images are not allowed in database
         setLoading(false)
         toast.error("Maximum 6 images are allowed")
         return

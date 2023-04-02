@@ -5,6 +5,6 @@ import React from 'react'
 
 export default function FurnitureHome() {
   return (
-    <div className='text-slate-200'>FurnitureHome</div>
+    <div className='text-slate-200'>Furniture</div>
   )
 }
