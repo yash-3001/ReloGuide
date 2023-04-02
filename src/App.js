@@ -22,6 +22,8 @@ import FurnitureHome from "./pages/FurnitureHome";
 import SaleFurniture from "./pages/SaleFurniture";
 import BuyFurniture from "./pages/BuyFurniture";
 import RentFurniture from "./pages/RentFurniture";
+import FurnitureProfile from './pages/FurnitureProfile'
+import FurnitureListed from "./pages/FurnitureListed"
 function App() {
   return (
     <>
@@ -60,6 +62,11 @@ function App() {
         </Route>
         <Route path="/BuyFurniture" element={<BuyFurniture/>}/>
         <Route path="/RentFurniture" element={<RentFurniture/>}/>
+        <Route path="/FurnitureProfile" element={<PrivateRoute/>}>
+        <Route path="/FurnitureProfile" element={<FurnitureProfile/>}/>
+        </Route>
+        <Route path="/FurnitureDetail/:furnitureName/:furnitureId" element={<FurnitureListed/>}/>
+        
       </Routes>
     </Router>
     

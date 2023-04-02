@@ -157,14 +157,51 @@ export default function Header() {
          onClick={()=>navigate("/sign-in")}> Sign-in</li>} 
       </ul> )
     }
-    if(location.pathname==='/SaleFurniture' || location.pathname==='/BuyFurniture' || location.pathname==='/RentFurniture'){
+    if(location.pathname==='/SaleFurniture'){
       return(<ul className='flex space-x-10'>
        <li 
       className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
       onClick={()=>navigate("/furniture")}>Home</li>
       <li 
       className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
-      onClick={()=>navigate("/RentFurniture")}>Profile</li>
+      onClick={()=>navigate("/FurnitureProfile")}>Profile</li>
+          {loginState ?  <li
+         className={` cursor-pointer py-3  text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+         onClick={onLogout}> Logout</li> : <li
+         className={` cursor-pointer py-3 text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+         onClick={()=>navigate("/sign-in")}> Sign-in</li>} 
+      </ul> )
+    }
+
+    if(location.pathname==='/BuyFurniture' ){
+      return(<ul className='flex space-x-10'>
+       <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/furniture")}>Home</li>
+       <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/RentFurniture")}>Rent</li>
+      <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/FurnitureProfile")}>Profile</li>
+          {loginState ?  <li
+         className={` cursor-pointer py-3  text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+         onClick={onLogout}> Logout</li> : <li
+         className={` cursor-pointer py-3 text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+         onClick={()=>navigate("/sign-in")}> Sign-in</li>} 
+      </ul> )
+    }
+    if(location.pathname==='/RentFurniture' ){
+      return(<ul className='flex space-x-10'>
+       <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/furniture")}>Home</li>
+       <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/BuyFurniture")}>Buy</li>
+      <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/FurnitureProfile")}>Profile</li>
           {loginState ?  <li
          className={` cursor-pointer py-3  text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
          onClick={onLogout}> Logout</li> : <li
