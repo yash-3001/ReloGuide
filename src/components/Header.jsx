@@ -222,6 +222,25 @@ export default function Header() {
          onClick={()=>navigate("/sign-in")}> Sign-in</li>} 
       </ul> )
     }
+
+    if(location.pathname==='/FurnitureProfile' ){
+      return(<ul className='flex space-x-10'>
+       <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/furniture")}>Home</li>
+       <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/BuyFurniture")}>Buy</li>
+      <li 
+      className={` cursor-pointer py-3 text-lg font-semibold text-[#89CFF0] border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/RentFurniture")}>Rent</li>
+          {loginState ?  <li
+         className={` cursor-pointer py-3  text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+         onClick={onLogout}> Logout</li> : <li
+         className={` cursor-pointer py-3 text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
+         onClick={()=>navigate("/sign-in")}> Sign-in</li>} 
+      </ul> )
+    }
     
    }
   return (
