@@ -43,19 +43,26 @@ export default function FurnitureListed() {
     fetchFurnitureItem();
   }, [params.furnitureId]);
   const wishList_list=[]
-  function wishlist(){
-    if(wishList===false){
-      if(!loggedIn){
-        navigate('/sign-in')
-      }
-      setWishList(true)
-      wishList_list.add()
+  // const [wishList, setWishList] = useState(false);
+  const [wishListItems, setWishListItems] = useState(new Set());
+  
+  function wishlist() {
+    if (!loggedIn) {
+      navigate('/sign-in');
+      return;
     }
-    else{
-      setWishList(false)
-    }
+  
+    const itemId = furniture.id;
+    const newWishListItems = new Set(wishListItems);
     
-    console.log(wishList)
+    if (wishListItems.has(itemId)) {
+      newWishListItems.delete(itemId);
+    } else {
+      newWishListItems.add(itemId);
+    }
+  
+    setWishListItems(newWishListItems);
+    setWishList(newWishListItems.has(itemId));
   }
 
   if (loading) {  
