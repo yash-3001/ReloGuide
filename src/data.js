@@ -281,7 +281,6 @@ export const heroservices = {
   title2: "services,",
   title3: "on",
   title4: "demand.",
-  subtitle: 'Home/"live location"',
 }
 
 // export const productservices = {

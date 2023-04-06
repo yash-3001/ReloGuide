@@ -26,7 +26,7 @@
 // import 'aos/dist/aos.css';
 // // import components
 // import 'aos/dist/aos.css';
-// import HeroS from '../components/Service/HeroS';
+import HeroS from '../components/Service/HeroS';
 // import ProductS from '../components/Service/ProductS';
 import { collection, getDoc, getDocs, limit, orderBy, query, QuerySnapshot, where } from 'firebase/firestore'
 import React from 'react'
@@ -433,6 +433,7 @@ async function fetchSearchResult(){
    },[])
   return (
     <div>
+    <HeroS />
     <Slider/>
     <div className='flex'>
     <input

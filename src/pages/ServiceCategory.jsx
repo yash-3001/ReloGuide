@@ -36,29 +36,29 @@ export default function ServiceCategory() {
       }
       fetchServicelistings()
   },[params.servicecategoryName])
-//  async function onFetchMoreListings(){
-//   try {
-//     const listingRef =collection(db,"servicelistings")
-//     const q=query(listingRef,where("service_type","==",params.categoryName),orderBy("timestamp","desc"),startAfter(lastFetchedListing), limit(4));
-//     const querySnap= await getDocs(q)
-//     const lastVisible=querySnap.docs[querySnap.docs.length-1]
-//     setlastFetchedListing(lastVisible)
-//     const listings=[]
-//     querySnap.forEach((doc)=>{
-//       return listings.push({
-//         id:doc.id,
-//         data:doc.data()
-//       })
-//     }
-//     )
-//     setListings((prevState)=>[
-//       ...prevState,...listings
-//     ])
-//       setLoading(false)
-//   } catch (error) {
-//     toast.error("could not fetch")
-//   }
-//  }
+ async function onFetchMoreServicelistings(){
+  try {
+    const listingRef =collection(db,"servicelistings")
+    const q=query(listingRef,where("service_type","==",params.categoryName),orderBy("timestamp","desc"),startAfter(lastFetchedServicelisting), limit(4));
+    const querySnap= await getDocs(q)
+    const lastVisible=querySnap.docs[querySnap.docs.length-1]
+    setlastFetchedServicelisting(lastVisible)
+    const servicelistings=[]
+    querySnap.forEach((doc)=>{
+      return servicelistings.push({
+        id:doc.id,
+        data:doc.data()
+      })
+    }
+    )
+    setServicelistings((prevState)=>[
+      ...prevState,...servicelistings
+    ])
+      setLoading(false)
+  } catch (error) {
+    toast.error("could not fetch")
+  }
+ }
   return (
     <div className='max-w-6xl mx-auto px-3'>
       <h1 className='text-3xl text-center mt-6 font-bold mb-6'>
@@ -85,16 +85,26 @@ export default function ServiceCategory() {
               ))}
             </ul>
           </main>
-          {/* {lastFetchedListing && (
+          {lastFetchedServicelisting && (
             <div className='flex justify-center items-center'>
-              <button onClick={onFetchMoreListings}
+              <button onClick={onFetchMoreServicelistings}
               className='bg-white px-3 py-1.5 text-gray-700 border border-gray-300 mb-6 mt-6 hover:border-slate-600 rounded transition duration-150 ease-in-out'>Load more</button>
             </div>
-          )} */}
+          )}
           </>
           
       ):(
-        <p> There are no current {params.categoryName==="rent"?"places for rent":"places for sell"} </p>
+        <p> There are no current {params.categoryName==="Home-Painting" && "Home Painting Services"}
+        {params.categoryName==="BK-Cleaning" && "Bathroom/Kitchen Cleaning Services"}
+        {params.categoryName==="SC-Cleaning" && "Sofa/Carpet Cleaning Services"}
+        {params.categoryName==="Pest-Cleaning" && "Pest Cleaning Services"}
+        {params.categoryName==="AC-HService" && "AC Repair Services"}
+        {params.categoryName==="M-HService" && "Microwave Repair Services"}
+        {params.categoryName==="WM-HService" && "Washing Machine Repair Services"}
+        {params.categoryName==="WP-HService" && "Water Purifier Repair Services"}
+        {params.categoryName==="R-HService" && "Refrigerator Repair Services"}
+        {params.categoryName==="Disinfection" && "Disinfection Services"}
+        {params.categoryName==="Cooking Services" && "Cooking Services Services"} </p>
       )}
     </div>
   )
