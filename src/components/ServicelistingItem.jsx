@@ -24,7 +24,7 @@ export default function ServicelistingItem({servicelisting,id,onEditService,onDe
           <p className='font-semibold text-sm m-0 truncate'>{servicelisting.service_type}</p>
 
           <p className="text-[#457b9d] mt-2 font-semibold">
-            ₹
+            ₹ 
             {servicelisting.offer
               ? servicelisting.discountedPrice
                   .toString()
@@ -34,7 +34,7 @@ export default function ServicelistingItem({servicelisting,id,onEditService,onDe
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             {(servicelisting.service_type === "Home-Painting" || servicelisting.service_type === "BK-Cleaning" || servicelisting.service_type === "Home-Cleaning" || servicelisting.service_type ==="Disinfection" || servicelisting.service_type ==="Pest-Cleaning") && " /BHK"}
             {(servicelisting.service_type === "AC-HService" || servicelisting.service_type ==="M-HService" || servicelisting.service_type === "WM-HService" || servicelisting.service_type === "WP-HService" || servicelisting.service_type ==="R-HService" || servicelisting.service_type ==="SC-Cleaning") && " /Unit"}
-            {servicelisting.service_type === "Cook-Service" && " /Day"}
+            {servicelisting.service_type === "Cooking-Services" && " /Day"}
           </p>
           <div className='flex items-center mt-[10px] space-x-3'>
             <div className= 'flex items-center space-x-1'>
@@ -42,11 +42,13 @@ export default function ServicelistingItem({servicelisting,id,onEditService,onDe
                 { (servicelisting.bhk > 0) && `${servicelisting.bhk} BHK`}
               </p>
             </div>
+            { (servicelisting.service_type === "Cooking-Services") &&
             <div className= 'flex items-center space-x-1'>
               <p className="font-bold text-xs">
-                { servicelisting.cook_days > 1 ? `${servicelisting.cook_days} days/week` : ` day/week`}
+              {(servicelisting.cook_days > 0) ? (servicelisting.cook) `days/week` : ` day/week`}
               </p>
             </div>
+            }
             <div className= 'flex items-center space-x-1'>
             <p className="font-bold text-xs">{servicelisting.duration>1?`${servicelisting.duration} Hours`:"1 Hour"}</p>
             </div>

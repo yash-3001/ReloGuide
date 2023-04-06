@@ -109,9 +109,9 @@ export default function Servicelistings() {
             servicelistings.service_type==="WM-HService"?"Washing Machine Repair Service":
             servicelistings.service_type==="WP-HService"?"Water Purifier Repair Service":
             servicelistings.service_type==="R-HService"?"Refrigerator Repair Service":
-            servicelistings.service_type==="SC-Cleaning"?"Sofa/Carpet Cleaning Service":"Cooking Services"}</p>
+            servicelistings.service_type==="SC-Cleaning"?"Sofa/Carpet Cleaning Service":"Cooking-Services"}</p>
           {servicelistings.offer &&(
-            <p className='w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md'> ${+servicelistings.regularPrice- +servicelistings.discountedPrice}discount</p>
+            <p className='w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md'> ${+servicelistings.regularPrice- +servicelistings.discountedPrice} Discount</p>
           )}
         </div>
         <p className='mt-3 mb-3 flex'>
@@ -149,7 +149,7 @@ export default function Servicelistings() {
             )
             }
             {
-              (servicelistings.cook_days === "Cook-Service") &&(
+              (servicelistings.cook_days === "Cooking-Services") &&(
                 <li className='flex items-center whitespace-nowrap'>
                   <GiCook className='text-lg mr-1'/>
                   {+servicelistings.cook_days>1?`${+servicelistings.cook_days} Days/Week`:"1 day/week"}

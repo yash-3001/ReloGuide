@@ -153,7 +153,7 @@ export default function CreateListingServices() {
                     <option value="WM-HService">Washing Machine Services</option>
                     <option value="Disinfection">Disinfection</option>
                     <option value="WP-HService">Water Purifier Services</option>
-                    <option value="Cook-Service">Cooking Services</option>
+                    <option value="Cooking-Services">Cooking Services</option>
                 </select>
             </div>
          <p className='text-lg font-semibold mt-6 text-lime-200'>Name of Service</p>
@@ -162,7 +162,7 @@ export default function CreateListingServices() {
             
             <p className='text-lg font-semibold mt-6 text-lime-200'>Address</p>
             <p className='text-sm font-semibold  mt-1 text-lime-500'>Located at?</p>
-            <textarea type="text" id="locality" value={locality} onChange={onChange} placeholder="Locality" maxLength="32" required 
+            <textarea type="text" id="locality" value={locality} onChange={onChange} placeholder="Locality" maxLength="500" required 
             className=" w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transi duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"/>
             <div className='flex space-x-6  ' ></div>
 
@@ -213,8 +213,8 @@ export default function CreateListingServices() {
                 (service_type === "SC-Cleaning")  && 
                 (
                 <div>
-                    <p className='w-full text-lg font-semibold text-lime-200'>Number of Sofa or Carpet</p>
-                    <input type="number" id="unit" value={bhk} onChange={onChange} min="1" max="100" required
+                    <p className='w-full text-lg font-semibold text-lime-200'>Number of Sofa/Carpet</p>
+                    <input type="number" id="unit" value={unit} onChange={onChange} min="1" max="6" required
                     className=' w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-700 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 text-center' />
                 </div>
                 )
