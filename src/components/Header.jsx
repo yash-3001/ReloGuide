@@ -123,7 +123,7 @@ export default function Header() {
       return (<ul className='flex space-x-10'>
         <li 
       className={` cursor-pointer py-3 text-lg  font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
-      onClick={()=>navigate("/listingsHome")}>Home</li>
+      onClick={()=>navigate("/soffers")}>Offers</li>
         <li
       className={` cursor-pointer py-3 text-lg  font-semibold text-gray-400 border-b-[3px] border-b-transparent 
         ${(pathMathRoute("/sign-in") || pathMathRoute("/profile")) && "text-black border-b-red-500"}`}
@@ -134,6 +134,19 @@ export default function Header() {
         onClick={onLogout}> Logout</li> : <li
       className={` cursor-pointer py-3 text-lg  font-semibold text-red-300 border-b-[3px] border-b-transparent ${pathMathRoute("/offers") && "text-black border-b-red-500"}`}
         onClick={()=>navigate("/sign-in")}> Sign-in</li>} 
+      </ul>)
+     }
+
+     if(location.pathname==='/soffers' ){
+      return (<ul className='flex space-x-10'>
+        <li 
+      className={` cursor-pointer py-3 text-lg  font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMathRoute("/listingsHome") && "text-black border-b-red-500"}`}
+      onClick={()=>navigate("/ServicesHome")}>Home</li>
+        <li
+         className={` cursor-pointer py-3 text-lg  font-semibold text-gray-400 border-b-[3px] border-b-transparent 
+         ${(pathMathRoute("/sign-in") || pathMathRoute("/profile")) && "text-black border-b-red-500"}`}
+         onClick={()=>navigate("/profile")}
+         >{pageState}</li>
       </ul>)
      }
 

@@ -26,7 +26,7 @@ export default function CreateListingServices() {
         description:"", 
         regularPrice:0,
         discountedPrice:0,
-        offer:true,
+        offer:false,
         images:{},
         cook_days:0,
         unit:0,     

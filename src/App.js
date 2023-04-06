@@ -14,7 +14,9 @@ import CreateListing from "./pages/CreateListing";
 import EditListing from "./pages/EditListing";
 import Listing from "./pages/Listing";
 import Servicelisting from "./pages/Servicelisting";
+import Soffers from "./pages/Soffers";
 import Category from "./pages/Category";
+import ServiceCategory from "./pages/ServiceCategory"
 import ServicesHome from "./pages/ServicesHome";
 import CreateListingServices from "./pages/CreateListingServices";
 import EditServicelisting from "./pages/EditServicelisting";
@@ -38,17 +40,21 @@ function App() {
         <Route path="/sign-in" element={<Signin/>}/>
         <Route path="/sign-up" element={<Signup/>}/>
         <Route path="/forgot-password" element={<ForgotPassword/>}/>
+
         <Route path="/category/:categoryName/:listingId" element={<Listing/>}/>
         <Route path="/servicecategory/:servicecategoryName/:servicelistingId" element={<Servicelisting />}/>
         
         <Route path="/offers" element={<Offers/>}/> 
         <Route path="/category/:categoryName" element={<Category/>}/> 
+        <Route path="/category/:servicecategoryName" element={<ServiceCategory/>}/> 
+
         <Route path="create-listing" element={<PrivateRoute/>}>
         <Route path="/create-listing" element={<CreateListing/>}/>
         </Route>
         <Route path="edit-listing" element={<PrivateRoute/>}>
         <Route path="/edit-listing/:listingId" element={<EditListing/>}/>
         </Route>
+        <Route path="/soffers" element={<Soffers/>}/> 
         <Route path="/services" element={<ServicesHome/>}></Route>
         <Route path="create-listing-services" element={<PrivateRoute/>}>
           <Route path="/create-listing-services" element={<CreateListingServices/>}/>

@@ -78,33 +78,33 @@ async function fetchSearchResult(){
 
 
 
-//  //Offers
-//  const [offerServicelistings,setofferServicelistings]=useState(null)
-//  useEffect(()=>{
-//     async function fetchServicelistings(){
-//       try {
-//         // get reference
-//         const servicelistingRef=collection(db,"servicelistings")
-//         //create query
-//         const q=query(servicelistingRef,where("offer","===",true),orderBy("timestamp","desc"),limit(4))
-//         //execute the query
-//         const querySnap=await getDocs(q)
-//         const servicelistings=[]
-//         querySnap.forEach((doc)=>{
-//           return servicelistings.push({
-//             id:doc.id,
-//             data:doc.data()
-//           })
-//         })
-//         setofferServicelistings(servicelistings)
+ //serviceOffers
+ const [offerServicelistings,setofferServicelistings]=useState(null)
+ useEffect(()=>{
+    async function fetchServicelistings(){
+      try {
+        // get reference
+        const servicelistingRef=collection(db,"servicelistings")
+        //create query
+        const q=query(servicelistingRef,where("offer","==",true),orderBy("timestamp","desc"),limit(4))
+        //execute the query
+        const querySnap=await getDocs(q)
+        const ServiceListings=[]
+        querySnap.forEach((doc)=>{
+          return ServiceListings.push({
+            id:doc.id,
+            data:doc.data()
+          })
+        })
+        setofferServicelistings(ServiceListings)
         
 
-//       } catch (error) {
-//         console.log(error)
-//       }
-//     }
-//     fetchServicelistings()
-//  },[])
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchServicelistings()
+ },[])
 
  //Home Painting Services
  const [HPListings,setHPListings]=useState(null)
@@ -447,7 +447,7 @@ async function fetchSearchResult(){
     {searchResult && searchResult.length>0 && (
         <div className='m-2 mb-6 ' >
           <h2 className='px-3 text-2xl mt-6 font-semibold'>Search Results</h2>
-          <Link to="/offers"><p className='px-3 text-sm text-blue-600 hover:text-blue-800 transition  duration-150 ease-in-out'>Show more offers</p></Link>
+          <Link to="/soffers"><p className='px-3 text-sm text-blue-600 hover:text-blue-800 transition  duration-150 ease-in-out'>Show more offers</p></Link>
           <ul className='sm:grid sm:grid-cols lg:grid-cols-3 xl:grid-cols-4 space-x-4'>
             {searchResult.map((ServiceListings)=>(
               <ServicelistingItem key={ServiceListings.id} servicelisting={ServiceListings.data} id={ServiceListings.id}/>
@@ -455,17 +455,17 @@ async function fetchSearchResult(){
           </ul>
         </div>
       )}
-      {/* {offerServicelistings && offerServicelistings.length>0 && (
+      {offerServicelistings && offerServicelistings.length>0 && (
         <div className='m-2 mb-6 ' >
           <h2 className='px-3 text-2xl mt-6 font-semibold'>Recent Offers</h2>
-          <Link to="/offers"><p className='px-3 text-sm text-blue-600 hover:text-blue-800 transition  duration-150 ease-in-out'>Show more offers</p></Link>
+          <Link to="/soffers"><p className='px-3 text-sm text-blue-600 hover:text-blue-800 transition  duration-150 ease-in-out'>Show more offers</p></Link>
           <ul className='sm:grid sm:grid-cols lg:grid-cols-3 xl:grid-cols-4 space-x-4'>
             {offerServicelistings.map((servicelisting)=>(
               <ServicelistingItem key={servicelisting.id} servicelisting={servicelisting.data} id={servicelisting.id}/>
             ))}
           </ul>
         </div>
-      )} */}
+      )}
 
 {BKListings && BKListings.length>0 && (
         <div className='m-2 mb-6 ' >
